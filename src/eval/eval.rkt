@@ -1,0 +1,40 @@
+#lang racket
+
+(require "./eval-assignment/assignment-variable/assignment-variable.rkt")
+(require "./eval-assignment/assignment-value/assignment-value.rkt")
+(require "./eval-assignment/set-variable-value/set-variable-value.rkt")
+
+(require "./self-evaluating/self-evaluating.rkt")
+(require "./variable/variable.rkt")
+(require "./quoted/quoted.rkt")
+(require "./lookup-variable-value/lookup-variable-value.rkt")
+(require "./text-of-quotation/text-of-quotation.rkt")
+(require "./assignment/assignment.rkt")
+;(require "./eval-assignment/eval-assignment.rkt")
+
+(define (eval-assignment exp env)
+  (set-variable-value! (assignment-variable exp)
+                       (eval (assignment-value exp) env)
+                       env)
+  'ok)
+
+
+(define (eval exp env)
+  (cond ((self-evaluating? exp) exp)
+       ((variable? exp) (lookup-variable-value exp env))
+       ((quoted? exp) (text-of-quotation exp))
+       ((assignment? exp) (eval-assignment exp env))
+       ((definition? exp) (eval-definition exp env))
+       ((if? exp) (eval-if exp env))
+       ((lambda? exp)
+        (make-procedure (lambda-parameters exp)
+                        (lambda-body exp)
+                        env))
+       ((begin? exp)
+        (eval-sequence (begin-actions exp) env))
+       ((cond? exp) (eval (cond->if exp) env))
+       ((application? exp)
+        (apply (eval (operator exp) env)
+               (list-of-values (operands exp) env)))
+       (else
+          (error "Unknown expression type -- EVAL" exp))))
