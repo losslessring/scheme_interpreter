@@ -1,0 +1,1 @@
+("7.6" racket ("5403c61b7044b19497e2dd17e8b598f28bba110a" . "72f6762b2f8afd4086aabde44ea1f03da9997552") #"C:\\projects\\programming\\scheme_interpreter\\src\\eval\\eval-definition\\definition-value\\.\\make-lambda\\make-lambda.rkt" (collects #"errortrace" #"errortrace-key.rkt") (collects #"racket" #"main.rkt") (collects #"racket" #"runtime-config.rkt"))

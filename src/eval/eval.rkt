@@ -4,22 +4,33 @@
 (require "./eval-assignment/assignment-value/assignment-value.rkt")
 (require "./eval-assignment/set-variable-value/set-variable-value.rkt")
 
+(require "./eval-definition/define-variable/define-variable.rkt")
+(require "./eval-definition/definition-variable/definition-variable.rkt")
+(require "./eval-definition/definition-value/definition-value.rkt")
+
 (require "./self-evaluating/self-evaluating.rkt")
 (require "./variable/variable.rkt")
 (require "./quoted/quoted.rkt")
 (require "./lookup-variable-value/lookup-variable-value.rkt")
 (require "./text-of-quotation/text-of-quotation.rkt")
 (require "./assignment/assignment.rkt")
+(require "./definition/definition.rkt")
 ;(require "./eval-assignment/eval-assignment.rkt")
 
 (define (eval-assignment exp env)
   (set-variable-value! (assignment-variable exp)
-                       (eval (assignment-value exp) env)
+                       (evaluate (assignment-value exp) env)
                        env)
   'ok)
 
+(define (eval-definition exp env)
+  (define-variable! (definition-variable exp)
+    (evaluate (definition-value exp) env)
+    env)
+  'ok)
 
-(define (eval exp env)
+
+(define (evaluate exp env)
   (cond ((self-evaluating? exp) exp)
        ((variable? exp) (lookup-variable-value exp env))
        ((quoted? exp) (text-of-quotation exp))
