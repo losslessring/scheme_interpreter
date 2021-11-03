@@ -1,0 +1,5 @@
+#lang racket
+
+(provide if?)
+
+(define (if? exp) (tagged-list? exp 'if))

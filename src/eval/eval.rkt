@@ -15,7 +15,13 @@
 (require "./text-of-quotation/text-of-quotation.rkt")
 (require "./assignment/assignment.rkt")
 (require "./definition/definition.rkt")
-;(require "./eval-assignment/eval-assignment.rkt")
+(require "./if/if.rkt")
+
+(require "./if/eval-if/true/true.rkt")
+(require "./if/eval-if/false/false.rkt")
+(require "./if/eval-if/if-predicate/if-predicate.rkt")
+(require "./if/eval-if/if-consequent/if-consequent.rkt")
+(require "./if/eval-if/if-alternative/if-alternative.rkt")
 
 (define (eval-assignment exp env)
   (set-variable-value! (assignment-variable exp)
@@ -28,6 +34,11 @@
     (evaluate (definition-value exp) env)
     env)
   'ok)
+
+(define (eval-if exp env)
+  (if (true? (evaluate (if-predicate exp) env))
+      (evaluate (if-consequent exp) env)
+      (evaluate (if-alternative exp) env)))
 
 
 (define (evaluate exp env)
