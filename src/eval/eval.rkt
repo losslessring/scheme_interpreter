@@ -23,6 +23,11 @@
 (require "./if/eval-if/if-consequent/if-consequent.rkt")
 (require "./if/eval-if/if-alternative/if-alternative.rkt")
 
+(require "./lambda/lambda.rkt")
+(require "./make-procedure/make-procedure.rkt")
+(require "./lambda-parameters/lambda-parameters.rkt")
+(require "./lambda-body/lambda-body.rkt")
+
 (define (eval-assignment exp env)
   (set-variable-value! (assignment-variable exp)
                        (evaluate (assignment-value exp) env)
