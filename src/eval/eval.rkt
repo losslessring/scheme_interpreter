@@ -27,6 +27,12 @@
 (require "./make-procedure/make-procedure.rkt")
 (require "./lambda-parameters/lambda-parameters.rkt")
 (require "./lambda-body/lambda-body.rkt")
+(require "./begin/begin.rkt")
+(require "./last-exp/last-exp.rkt")
+(require "./first-exp/first-exp.rkt")
+(require "./rest-exps/rest-exps.rkt")
+(require "./begin-actions/begin-actions.rkt")
+
 
 (define (eval-assignment exp env)
   (set-variable-value! (assignment-variable exp)
@@ -44,6 +50,11 @@
   (if (true? (evaluate (if-predicate exp) env))
       (evaluate (if-consequent exp) env)
       (evaluate (if-alternative exp) env)))
+
+(define (eval-sequence exps env)
+  (cond ((last-exp? exps) (evaluate (first-exp exps) env))
+        (else (evaluate (first-exp exps) env)
+              (eval-sequence (rest-exps exps) env))))
 
 
 (define (evaluate exp env)
