@@ -1,0 +1,1 @@
+("7.6" racket ("703b375f1cf66ddc067d6fd139f9e2596b9ecb50" . "e8638c2fa75d1ce22b057c02f7f9835e5cafd26d") #"C:\\projects\\programming\\scheme_interpreter\\src\\eval\\cond\\..\\quoted\\tagged-list\\tagged-list.rkt" (collects #"errortrace" #"errortrace-key.rkt") (collects #"racket" #"main.rkt") (collects #"racket" #"runtime-config.rkt"))

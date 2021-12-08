@@ -1,0 +1,1 @@
+("7.6" racket ("a0318dbddc466911a88b380893f91a583bef7f1a" . "cd077de07e6f8af18ce0eb076ce1094f2372b559") #"C:\\projects\\programming\\scheme_interpreter\\src\\eval\\cond\\cond-else-clause\\..\\cond-predicate\\cond-predicate.rkt" (collects #"errortrace" #"errortrace-key.rkt") (collects #"racket" #"main.rkt") (collects #"racket" #"runtime-config.rkt"))

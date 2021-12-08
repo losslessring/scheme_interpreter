@@ -1,0 +1,5 @@
+#lang racket
+
+(provide cond-actions)
+
+(define (cond-actions clauses) (cdr clause))

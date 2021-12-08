@@ -1,0 +1,4 @@
+#lang racket
+
+(provide cond->if exp)
+  (expand-clauses (cond-clauses exp))

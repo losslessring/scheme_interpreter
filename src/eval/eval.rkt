@@ -33,6 +33,9 @@
 (require "./rest-exps/rest-exps.rkt")
 (require "./begin-actions/begin-actions.rkt")
 
+(require "./cond/cond.rkt")
+(require "./cond/cond-if/cond-if.rkt")
+
 
 (define (eval-assignment exp env)
   (set-variable-value! (assignment-variable exp)

@@ -1,0 +1,6 @@
+#lang racket
+
+(provide cond-else-clause?)
+
+(define (cond-else-clause? clause)
+  (eq? (cond-predicate clause) 'else))

@@ -1,0 +1,4 @@
+#lang racket
+(provide cond?)
+
+(define (cond? exp) (tagged-list? exp 'cond))
