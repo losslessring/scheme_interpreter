@@ -1,8 +1,13 @@
 #lang racket
 
+(require "../cond-else-clause/cond-else-clause.rkt")
+(require "../sequence-exp/sequence-exp.rkt")
+(require "../cond-actions/cond-actions.rkt")
+(require "../make-if/make-if.rkt")
+
 (provide expand-clauses)
 
-(define expand-clauses clauses)
+(define (expand-clauses clauses)
   (if (null? clauses)
       'false
       (let ((first (car clauses))
@@ -14,4 +19,4 @@
                        clauses))
             (make-if (cond-predicate first)
                      (sequence->exp (cond-action first))
-                     (expand-clauses rest)))))
+                     (expand-clauses rest))))))

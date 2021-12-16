@@ -1,5 +1,8 @@
 #lang racket
 (require "../expand-clauses/expand-clauses.rkt")
+(require "../cond-clauses/cond-clauses.rkt")
 
 (provide cond->if exp)
-  (expand-clauses (cond-clauses exp))
+
+(define (cond->if exp)
+  (expand-clauses (cond-clauses exp)))

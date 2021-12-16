@@ -1,9 +1,4 @@
 #lang racket
-(require "../no-operands/no-operands.rkt")
-(require "../first-operand/first-operand.rkt")
-(require "../rest-operands/rest-operands.rkt")
-(require "../operands/operands.rkt")
-
 (provide list-of-values)
 
 (define (list-of-values exps env)
