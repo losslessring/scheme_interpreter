@@ -41,6 +41,10 @@
 (require "./list-of-values/list-of-values.rkt")
 (require "./operands/operands.rkt")
 
+(require "../apply/primitive-procedure/primitive-procedure.rkt")
+(require "../apply/apply-primitive-procedure/apply-primitive-procedure.rkt")
+
+
 (define (eval-assignment exp env)
   (set-variable-value! (assignment-variable exp)
                        (evaluate (assignment-value exp) env)

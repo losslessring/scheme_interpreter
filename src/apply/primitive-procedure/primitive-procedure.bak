@@ -1,0 +1,6 @@
+#lang racket
+
+(provide primitive-procedure?)
+
+(define (primitive-procedure? proc)
+  (tagged-list? proc 'primitive))
