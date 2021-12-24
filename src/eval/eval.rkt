@@ -43,6 +43,12 @@
 
 (require "../apply/primitive-procedure/primitive-procedure.rkt")
 (require "../apply/apply-primitive-procedure/apply-primitive-procedure.rkt")
+(require "../apply/compound-procedure/compound-procedure.rkt")
+(require "../apply/procedure-body/procedure-body.rkt")
+(require "../apply/extend-environment/extend-environment.rkt")
+(require "../apply/procedure-parameters/procedure-parameters.rkt")
+(require "../apply/procedure-environment/procedure-environment.rkt")
+
 
 
 (define (eval-assignment exp env)

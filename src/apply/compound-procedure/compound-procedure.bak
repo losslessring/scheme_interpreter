@@ -1,0 +1,5 @@
+#lang racket
+(provide compound-procedure?)
+
+(define (compound-procedure? p)
+  (tagged-list? p 'procedure))

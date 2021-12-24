@@ -1,0 +1,1 @@
+("7.6" racket ("d38ec582d90c47e2eb42e6d2062f5329ec340e49" . "2af63d95a0bb4c80ce99dd508262fd7f0bc0f592") #"C:\\projects\\programming\\scheme_interpreter\\src\\apply\\extend-environment\\..\\make-frame\\make-frame.rkt" (collects #"errortrace" #"errortrace-key.rkt") (collects #"racket" #"main.rkt") (collects #"racket" #"runtime-config.rkt"))

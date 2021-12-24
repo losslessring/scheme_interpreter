@@ -1,5 +1,6 @@
 #lang racket
 (require "../apply-in-underlying-scheme/apply-in-underlying-scheme.rkt")
+(require "../primitive-implementation/primitive-implementation.rkt")
 
 (provide apply-primitive-procedure)
 
